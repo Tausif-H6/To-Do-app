@@ -33,7 +33,7 @@ class RegisterPage(FormView):
     
     # we need to check if the user is already logged in or not.
     def get(self,*args, **kwargs):
-        if self.redirect_authenticated_user:
+        if self.request.user.is_authenticated:
             #if the user is authenticated then we will retun 
             return redirect('tasks')
         # For all other opther cases 
