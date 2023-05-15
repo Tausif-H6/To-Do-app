@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django import forms
 # Create your models here.
 
 class Task(models.Model):
@@ -8,6 +9,8 @@ class Task(models.Model):
     description = models.TextField(null= True,blank = True)
     complete = models.BooleanField(default=False)
     create = models.DateTimeField(auto_now_add=True)
+    reminder_date = models.DateField(null=True, blank=True, attrs={'placeholder': 'Select a date'})
+    reminder_time = models.TimeField(null=True, blank=True)
 
     def __str__(self) -> str:
         return self.title
