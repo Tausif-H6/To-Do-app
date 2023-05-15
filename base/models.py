@@ -9,8 +9,8 @@ class Task(models.Model):
     description = models.TextField(null= True,blank = True)
     complete = models.BooleanField(default=False)
     create = models.DateTimeField(auto_now_add=True)
-    reminder_date = models.DateField(null=True, blank=True, attrs={'placeholder': 'Select a date'})
-    reminder_time = models.TimeField(null=True, blank=True)
+    reminder_date = models.DateField(null=True, blank=True, help_text=" Hints: YYYY-MM-DD")
+    reminder_time = models.TimeField(null=True, blank=True,help_text="Hints (24hours) hh:mm:ss  ")
 
     def __str__(self) -> str:
         return self.title
